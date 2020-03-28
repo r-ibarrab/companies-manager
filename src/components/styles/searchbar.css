@@ -1,0 +1,56 @@
+#input{
+
+    background-color: transparent;
+    font-size:20px;
+    border:0;
+    width:inherit;
+    width:90%;
+}
+
+#input:focus{
+    outline:none;
+
+}
+.input-container{
+    padding:4%;
+    padding-top:3%;
+    padding-bottom:.5%;
+    padding-left:0;
+    display: inline-block;
+    width: 50%;
+    border-bottom:2.3px solid rgba(45, 57, 3,.18);
+    margin-left:3%;
+    height:30px;
+
+
+}
+.lupa{
+    width:15px;
+    height:15px;
+    margin-right:3%;
+    
+}
+
+.boton-filter{
+    background-color: transparent;
+    margin-top:3%;
+    margin-right:2%;
+    border:2.5px solid rgba(45, 57, 3,.26);
+    border-radius:30px;
+    padding:1% 4%;
+    width:fit-content;
+    height:fit-content;
+    color:rgba(9, 12, 0, 0.90);
+  
+}
+
+.boton-filter:hover{
+    cursor:pointer;
+}
+
+.inputcontent-container{
+width:100%;
+display:flex;
+justify-content: space-between;
+
+}

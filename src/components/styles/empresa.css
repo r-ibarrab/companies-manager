@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500|Poppins:100,200,300,400,500&display=swap');
+
+
+
+.container-empresa{
+    height:99vh;
+    box-shadow: rgba(70, 69, 69,.7) 1px 0 6px;
+    margin:0;
+    padding:2% 6%;
+    position:relative;
+    
+    
+}
+
+.title-empresa{
+
+    color:black;
+    height:135.5px;
+    border-bottom: 1px solid #9694947c;
+    
+}
+
+.title-empresa h1{
+    padding-top:9%;
+    padding-left:9%;
+    
+}
+
+.mensajes{
+    color:#4756A8;
+    font-size:12px;
+    padding-left:9%;
+    margin-top:4%;
+}
+.mensajes-provicional{
+    margin-top:15%;
+    height:25%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mensajes-provicional h2{
+
+    font-size:14px;
+    color:gray;
+   
+}
+
+.new{
+    
+    position: absolute;
+    margin-right:6%;
+    bottom:5%;
+    right:5%; 
+}
+.new:hover{
+    cursor:pointer;
+}
+
+.new-title{
+    color:#0B2096;
+}
+.mas{
+    font-size:20px;
+    font-weight:400;
+}
+
+#addnewco{
+    padding-top:1%;
+    padding-bottom:0;
+    height:130px;
+    font-size:.8em;
+    padding-left:0;
+    margin:0;
+    width:90%;
+    margin:0 auto;
+}
+#addnewco h1{
+    margin:0;
+    padding-left:0;
+    padding-top:20%;
+    color:rgba(0,0,0,.78);
+}
+.personal-inputs{
+
+    margin-top:6%;
+    margin-left:7%;
+    
+
+}
+
+.personalinfo-title{
+    margin-top:4%;
+    margin-left:8%;
+    font-size:.9em;
+    color:rgba(19, 19, 116,.77);
+
+}
+.personal-inputs{
+height:500px;
+width:100%;
+
+}
+.input-container12{
+
+    height:16%;
+    width:100%;
+    margin-bottom:2%;
+}
+
+.header-input{
+
+    color:rgba(17, 17, 34,.77);
+}
+
+.inputs12{
+    margin-top:2%;
+    height:30%;
+    width:60%;
+    border:1px solid rgba(112, 112, 112,.33);
+    border-radius:30px;
+    padding:2%;
+    padding-left:4%;
+    font-size:1em;
+}
+.inputs12:focus{
+    outline:none;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.new{
+
+    display:flex;
+
+}
+.secondnew{
+
+    padding-right:3%;
+
+}
+#back-button, #next-button{
+   
+    margin-right:20%;
+
+}
