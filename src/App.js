@@ -4,6 +4,8 @@ import Barra from './components/barral'
 import './app.css'
 import SearchBar from './components/searchbar'
 import Elemento from './components/elementoempre'
+import Emergent from './components/emergent'
+import Confirmation from './components/confirm'
 
 
 class App extends React.Component{
@@ -14,6 +16,7 @@ constructor(props){
  
 
   this.state={
+    eliminate:'',
     value:"Create",
     index: '',
     edito:0,
@@ -23,13 +26,13 @@ constructor(props){
 }
 
 
-createElement= (i) => {
+createElement= (data) => {
   this.setState({value: "Create"})
 
-  var g =  document.getElementById("namevalue").value;
-  var n = document.getElementById("categoryvalue").value;
-  var r=document.getElementById("contravalue").value;
-  var s=document.getElementById("mailvalue").value;
+  var g =  data.name;
+  var n = data.category;
+  var r= data.mail;
+  var s=data.password;
 
   var companies =this.state.empresasm
 
@@ -109,6 +112,25 @@ hideEmergent = ()=>{
   document.getElementById("mailvalue").value="";
 }
 
+confirmation= (i)=>{
+  this.setState({eliminate:i})
+  document.getElementById("hola123").style.display="block";
+
+}
+
+accept = () =>{
+
+this.handleRemove(this.state.eliminate)
+document.getElementById("hola123").style.display="none";
+
+
+}
+
+cancel = ()=>{
+
+document.getElementById("hola123").style.display="none";
+
+}
 
 
 
@@ -119,51 +141,15 @@ render(){
   return (
     
     <div>
+      <Confirmation id="confirmation" accept={()=>{this.accept()}}  cancel={()=>{this.cancel()}}  />
+      <Emergent id= "emergenteco" hideEmergent={()=>{this.hideEmergent()}} createElement={(data)=>{ this.createElement(data)}}  value={this.state.value}/>
+
     <div className="content-organizer" >
 
-      <div className="emergent" id="emergenteco">
-        
-        <div className="elemento-input">
-            <h3 className="title-input" >Name</h3>
-
-            <input type="text" className="inputs" id="namevalue" ref="nomcomp"/>
-
-        </div>
-        <div className="elemento-input">
-            <h3 className="title-input">Category</h3>
-
-            <input type="text" className="inputs" id="categoryvalue"/>
-
-        </div>
-        <div className="elemento-input">
-            <h3 className="title-input">Mail</h3>
-            <input type="mail" className="inputs" id="mailvalue"/>
-        </div>
-
-        <div className="elemento-input">
-            <h3 className="title-input">Contraseña</h3>
-            <input type="password" className="inputs" id="contravalue"/>
-        </div>
-
-        <div className="container-botones-cc" > 
-
-            <div className="botones-create-cancel" >
-
-              <h3 className="cancel" onClick={()=>{ this.hideEmergent()}} >Cancel</h3>
-              
-  <h3 className="create" onClick= {()=>{ this.createElement() } } >{this.state.value}</h3> 
-              
+      
 
 
-            </div>
-
-        </div>
-
-
-
-      </div>
-
-
+      
     <Barra title="Administrator"/>
     <Empresa Empresa ="Don Pepe"   changeVariable={ () =>{ this.showEmergent() } }/>
     <div id="mostrar-empresas">
@@ -176,7 +162,7 @@ render(){
         {
           this.state.empresasm.map((data,i)=>{
             return (
-              <Elemento key={i} num ={i} empresap={data.title} handleRemove={()=>{this.handleRemove(i)}} categoria={data.category} handleEdit={(i)=>{ this.handleEdit(i) }} />
+              <Elemento key={i} num ={i} empresap={data.title} handleRemove={()=>{this.confirmation(i)}} categoria={data.category} handleEdit={(i)=>{ this.handleEdit(i) }} />
 
             )
           })

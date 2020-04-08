@@ -30,7 +30,7 @@ return(
 
                     <div className="new" >
 
-                        <h3 className="new-title"  onClick={ () =>{ props.changeVariable( 2 ) } } >New <strong className="mas">+</strong></h3>
+                        <h3 className="new-title"  onClick={ () =>{ props.changeVariable() } } >New <strong className="mas">+</strong></h3>
 
 
                     </div>

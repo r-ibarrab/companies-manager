@@ -1,0 +1,49 @@
+.hola123{
+display:none;
+width:fit-content;
+position:absolute;
+padding:60px;
+top:-10%;
+left:35%;
+z-index: 4;
+
+}
+
+.recuadro{
+    margin:20px auto;
+    width:700px;
+    height:100px;
+    background-color: white;
+    border-radius:25px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    text-align:center;
+    font-size:10px;
+    padding:15px 10px;
+    box-shadow:2px 2px 6px rgba(119, 117, 117, 0.623);
+  
+}
+
+.recuadro h1{
+    margin-left:20px;
+    color:rgb(63, 59, 59);
+
+}
+
+.botones123{
+    margin-top:30px;
+    display:flex;
+    margin-left:60%;
+    
+
+}
+
+.botones123 h2{
+
+    margin-left:18px;
+
+}
+
+h2:hover{
+    cursor:pointer;
+}

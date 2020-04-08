@@ -1,0 +1,86 @@
+
+.emergent{
+    height:350px;
+    width:400px;
+    background-color:white;
+    min-width: 350px ;
+    min-height:300px;
+    border:1px solid rgba(0,0,0,.1);
+    border-radius:30px;
+    position:absolute;
+    top:20%;
+    left:37%;
+    box-shadow:rgba(73, 65, 28,.4) 2px 3px 6px;
+    z-index: 3;
+    padding:3%;
+    display:none;
+    animation:desap .2s ease-in-out;
+    
+    
+    }
+    
+    @keyframes desap{
+        from{
+            opacity:0;
+        }
+        to{
+            opacity:1;
+        }
+    
+    }
+    .elemento-input{
+        margin-bottom:5%;
+       
+    }
+    
+    .title-input{
+    color:rgba(0,0,0,.7);
+    }
+    
+    .inputs{
+    
+        width:90%;
+        height:28px;
+        border:1px solid rgba(85, 81, 81,.5);
+        border-radius:20px;
+        padding:.5%;
+        padding-left:4%;
+        font-size:1em;
+        
+    
+    }
+    
+    .inputs:focus{
+        outline: none;
+        box-shadow:  1px 2px 3px rgba(167, 157, 141, 0.6) ; 
+    
+    }
+    .container-botones-cc{
+    
+        width:100%;
+        display:flex;
+        justify-content: flex-end;
+        margin-bottom:1%;
+    
+    }
+    
+    .botones-create-cancel{
+        width:50%;
+        display:flex;
+       
+    
+    }
+    
+    .botones-create-cancel h3{
+    
+        color: #4756b8;   
+        margin-right:20%; 
+    }
+    .botones-create-cancel h3:hover{
+        cursor:pointer;
+    }
+    
+    
+    
+    
+    
