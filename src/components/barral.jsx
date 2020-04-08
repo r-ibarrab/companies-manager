@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 import './styles/barral.css'
 
@@ -21,9 +22,9 @@ const barral = ({title})=>{
             <div className="botones">
 
                 <ul className="botones-list">
-                    <div className="boton" >Home</div>
-                    <div className="boton" >Messages</div>
-                    <div className="boton" >Settings</div>
+                    <Link to ="/home" className="boton" >Home</Link>
+                    <Link to="messages" className="boton" >Messages</Link>
+                    <Link to="settings" className="boton" >Settings</Link>
                 </ul>
 
             </div>
