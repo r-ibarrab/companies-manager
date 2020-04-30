@@ -9,7 +9,7 @@ const Layout = (props)=>{
 
         <div id ="elmain">
                
-                    <Barra />
+                    <Barra title="Administrator" />
                     <div>
                     {props.children}
                     </div>

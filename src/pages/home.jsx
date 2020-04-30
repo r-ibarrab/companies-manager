@@ -18,83 +18,83 @@ constructor(props){
   this.state={
     eliminate:'',
     value:"Create",
-    index: '',
-    edito:0,
+    edito: '',
     empresasm:[]  
   }
 
+
+
+  
 }
 
 
-createElement= (data) => {
-  this.setState({value: "Create"})
 
-  var g =  data.name;
-  var n = data.category;
-  var r= data.mail;
-  var s=data.password;
+componentDidMount(){
+  this.getCompanies();
 
-  var companies =this.state.empresasm
+}
 
-  if(this.state.edito == 0){
 
-    if (g!== "" && n!== ""){
-      
-      var newcompany = {title:g,category:n,mail:s,password:r}
-      companies.push(newcompany)
+editar(data){
+  
+  this.setState({value: 'Accept'})
+  this.setState({edito: data._id})
+
+  document.getElementById("emergenteco").style.display="block";
+  document.getElementById("namevalue").value=data.title;
+  document.getElementById("categoryvalue").value=data.category;
+  document.getElementById("mailvalue").value=data.mail;
+  document.getElementById("contravalue").value=data.password;
+
+  
+
+}
+
+
+  async getCompanies(){
+
+
+
+   await fetch('http://localhost:5000/api/companies')
+  .then(response =>response.json())
+  .then(data =>{
+    console.log('hola',data)
+    this.setState({empresasm:[]})
+    this.setState({empresasm:data})
+  })
+  .catch(e=>{
+    console.error(e)
+    console.log("hubo un error")
+  })
+  console.log('refresque')
+  // const data= response.json
+  // const fdata = JSON.stringify(data)
+
+
+}
+
+
+
+
+
+ async handleRemove(i){
+  
+  console.log('id', i)
+  await fetch(`http://localhost:5000/api/companies/${i}`, {
+    method:'DELETE',
+    headers:{
+      'Accept': 'application/json',
+      'Content-Type':'application/json'
     }
-
-  }else{
-
-    var index = this.state.index;
-    companies[index].title= document.getElementById("namevalue").value;
-    companies[index].category=document.getElementById("categoryvalue").value;
-    companies[index].mail= document.getElementById("mailvalue").value;
-    companies[index].password=document.getElementById("contravalue").value;
-
-
-  }
-  
-    this.setState({empresasm: companies,
-      edito:0})
-  
-  document.getElementById("namevalue").value="";
-  document.getElementById("categoryvalue").value="";
-  document.getElementById("contravalue").value="";
-  document.getElementById("mailvalue").value="";
-  
-  this.hideEmergent();
-
-  
-   
-}
-
-
-handleRemove = i =>{
-  var newcompanies = this.state.empresasm;
-  newcompanies.splice(i,1)
-  this.setState({
-  })
-}
-
-handleEdit = i =>{
-
-  this.setState({value: "Accept"})
-
-  this.showEmergent()
-
-  var newcompany = this.state.empresasm[i]
-  document.getElementById("namevalue").value= newcompany.title
-  document.getElementById("categoryvalue").value=newcompany.category
-  document.getElementById("mailvalue").value= newcompany.mail
-  document.getElementById("contravalue").value= newcompany.password
-
-
-  this.setState({
-    index:i,
-    edito:1
   })
   
+    console.log('hola',i)
+  
+    await this.getCompanies();
+
+    console.log('YA SE ELIMINO')
+
+    this.setState({eliminate: ''});
 
 
 }
@@ -113,15 +113,17 @@ hideEmergent = ()=>{
 }
 
 confirmation= (i)=>{
+  console.log(i)
   this.setState({eliminate:i})
+
   document.getElementById("hola123").style.display="block";
 
 }
 
-accept = () =>{
+accept =  () =>{
 
-this.handleRemove(this.state.eliminate)
-document.getElementById("hola123").style.display="none";
+  document.getElementById("hola123").style.display="none";
+  this.handleRemove(this.state.eliminate);
 
 
 }
@@ -141,8 +143,8 @@ render(){
   return (
     
     <div className="aquiestoy">
-      <Confirmation id="confirmation" accept={()=>{this.accept()}}  cancel={()=>{this.cancel()}}  />
-      <Emergent id= "emergenteco" hideEmergent={()=>{this.hideEmergent()}} createElement={(data)=>{ this.createElement(data)}}  value={this.state.value}/>
+      <Confirmation id="confirmation" accept={()=>{ this.accept()}}  cancel={()=>{this.cancel()}}  />
+      <Emergent id= "emergenteco" refresh={ ()=>{ this.getCompanies()} } hideEmergent={()=>{this.hideEmergent()}} createElement={(data)=>{ this.createElement(data)}}  companyid={this.state.edito} value={this.state.value}/>
 
     <div className="content-organizer" >
 
@@ -156,9 +158,11 @@ render(){
        
 
         {
-          this.state.empresasm.map((data,i)=>{
+        
+
+          this.state.empresasm.map((company,i)=>{
             return (
-              <Elemento key={i} num ={i} empresap={data.title} handleRemove={()=>{this.confirmation(i)}} categoria={data.category} handleEdit={(i)=>{ this.handleEdit(i) }} />
+              <Elemento key={i} num ={i} empresap={company.title} handleRemove={()=>{this.confirmation(company._id)}} categoria={company.category} handleEdit={(i)=>{ this.editar(company) } }  compania={company}/>
 
             )
           })

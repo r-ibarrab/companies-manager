@@ -12,7 +12,7 @@ const confirm = (props)=>{
 
                     <div className="botones123">
 
-                        <h2 onClick={props.accept}> Accept </h2>
+                        <h2 onClick={()=>{props.accept()}}> Accept </h2>
                         <h2 onClick={props.cancel}> Cancel </h2>
 
 

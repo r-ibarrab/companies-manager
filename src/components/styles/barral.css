@@ -23,6 +23,8 @@ text-align:center;
     padding-top:20px;
     padding-bottom:20px;
     border-bottom:2px solid rgba(7, 29, 73,.25);
+    transition: all .5s ease;
+
 }
 
 .account-category{
@@ -63,6 +65,7 @@ height:70%;
     justify-content:center;
     color:white;
     font-size:14px;
+    transition: all .3s ease;
 
     
 }
@@ -70,20 +73,7 @@ height:70%;
 
 .boton:hover, .profile:hover{
     cursor:pointer;
-    animation:hola .18s ease-in;
-    animation-fill-mode: both;
+    background-color:rgb(24, 52, 112) ;
   
 }
 
-@keyframes hola{
-
-    from{
-        background-color: transparent;
-    }
-    to{
-
-            background-color:rgb(24, 52, 112) ;
-
-    }
-
-}
